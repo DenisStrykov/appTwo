@@ -1,0 +1,9 @@
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+server:
+  port: 8083
+
+topics: ${KAFKA_SUBSCRIBED_TOPICS}

@@ -1,0 +1,24 @@
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  datasource:
+#    url: jdbc:postgresql://${HOST}/${POSTGRES_DB}
+    url: jdbc:postgresql://localhost:5437/sensor_data
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: none
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+  liquibase:
+    change-log: classpath:liquibase/db.changelog.yaml
+    enabled: true
+server:
+  port: 8083
+
+grpc:
+  server:
+    port: ${GRPC_PORT}
+
+topics: ${KAFKA_SUBSCRIBED_TOPICS}
